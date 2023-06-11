@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "966512606263",
+    "project_id": "multiquiz-f3854",
+    "storage_bucket": "multiquiz-f3854.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966512606263:android:35c49fd00c7f0aadbad3b2",
+        "android_client_info": {
+          "package_name": "com.khoa.multiquiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966512606263-m88ue75acdiuo06j4innqbqkhnp6fp2q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLI1cm8X4X9-EZnvUqDR7pnwyHvBcYVC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966512606263-m88ue75acdiuo06j4innqbqkhnp6fp2q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
