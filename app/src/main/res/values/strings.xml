@@ -8,4 +8,6 @@
     <string name="register">Đăng ký</string>
     <string name="register_switch">Chưa có tài khoản? Đăng ký ngay</string>
     <string name="login_switch">Đã có tài khoản? Đăng nhập tại đây</string>
+    <string name="main_page">Trang chủ</string>
+    <string name="user_page">Tài khoản</string>
 </resources>
