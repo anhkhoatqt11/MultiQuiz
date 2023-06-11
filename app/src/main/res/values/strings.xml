@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MultiQuiz</string>
+    <string name="email_address">Địa chỉ Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="app_description">Ứng dụng giải đố trực tuyến</string>
+    <string name="login">Đăng nhập</string>
 </resources>
