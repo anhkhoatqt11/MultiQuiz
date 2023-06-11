@@ -4,4 +4,8 @@
     <string name="password">Mật khẩu</string>
     <string name="app_description">Ứng dụng giải đố trực tuyến</string>
     <string name="login">Đăng nhập</string>
+    <string name="username">Tên người dùng</string>
+    <string name="register">Đăng ký</string>
+    <string name="register_switch">Chưa có tài khoản? Đăng ký ngay</string>
+    <string name="login_switch">Đã có tài khoản? Đăng nhập tại đây</string>
 </resources>
