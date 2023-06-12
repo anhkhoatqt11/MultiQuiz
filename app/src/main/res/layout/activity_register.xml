@@ -11,11 +11,11 @@
     android:padding="40dp">
 
     <TextView
+        style="@style/BrandText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MultiQuiz"
-        style="@style/BrandText">
-    </TextView>
+        android:fontFamily="@font/poppinsextrabold"
+        android:text="MultiQuiz"></TextView>
 
     <TextView
         android:layout_width="wrap_content"

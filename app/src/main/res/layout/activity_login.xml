@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MultiQuiz"
-        style="@style/BrandText">
+        style="@style/BrandText"
+        android:fontFamily="@font/poppinsextrabold">
     </TextView>
 
     <TextView
