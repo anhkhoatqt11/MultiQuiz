@@ -55,7 +55,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="@string/name_demo"
-                    android:textColor="@color/white"
                     android:textSize="25dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +65,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/joindate_demo"
-                    android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@+id/userCurrentLogin"
                     app:layout_constraintTop_toBottomOf="@+id/userCurrentLogin" />
 
@@ -74,7 +72,7 @@
                     android:id="@+id/logoutButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Button"
+                    android:text="Đăng xuất"
                     app:layout_constraintStart_toStartOf="@+id/imageView2"
                     app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 

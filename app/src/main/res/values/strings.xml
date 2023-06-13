@@ -12,4 +12,5 @@
     <string name="user_page">Tài khoản</string>
     <string name="name_demo">Trương Anh Khoa</string>
     <string name="joindate_demo">Đã tham gia từ: 12/06/2023</string>
+    <string name="picktheme_title">Chọn chủ đề</string>
 </resources>
