@@ -13,4 +13,6 @@
     <string name="name_demo">Trương Anh Khoa</string>
     <string name="joindate_demo">Đã tham gia từ: 12/06/2023</string>
     <string name="picktheme_title">Chọn chủ đề</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="theme_name">Theme name</string>
 </resources>

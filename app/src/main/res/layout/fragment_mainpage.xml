@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="Trang chủ"
-        android:textSize="28dp"
+        android:text="@string/main_page"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,16 +24,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/picktheme_title"
-        android:textSize="28dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/carousel_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -67,17 +67,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }else {
-//            textView.setText(currentUser.getEmail());
         }
 
-/*        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MAuth.signOut();
-                Intent intent = new Intent(getApplicationContext(), Login.class);
-                startActivity(intent);
-                finish();
-            }
-        });*/
     }
 }
