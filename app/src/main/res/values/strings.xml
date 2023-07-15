@@ -15,4 +15,6 @@
     <string name="picktheme_title">Chọn chủ đề</string>
     <string name="logout">Đăng xuất</string>
     <string name="theme_name">Theme name</string>
+    <string name="demoid">DemoID</string>
+    <string name="player1_text">Người chơi 1</string>
 </resources>

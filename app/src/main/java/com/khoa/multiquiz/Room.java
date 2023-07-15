@@ -1,13 +1,24 @@
 package com.khoa.multiquiz;
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
     String RoomID;
     String UserUID;
+    String OpponentUID;
     int QuestionThemeID;
     int NumberOfQuestion;
 
     public Room(){
 
+    }
+
+    public String getOpponentUID() {
+        return OpponentUID;
+    }
+
+    public void setOpponentUID(String opponentUID) {
+        OpponentUID = opponentUID;
     }
 
     public String getRoomID() {

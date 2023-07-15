@@ -32,6 +32,14 @@
             android:name=".ThemeLobby"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".Ingame"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".WaitingIngame"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

@@ -2,7 +2,6 @@ package com.khoa.multiquiz.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,6 @@ import com.khoa.multiquiz.ThemeLobby;
 import com.khoa.multiquiz.adapter.CarouselAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -40,16 +38,9 @@ public class HomeFragment extends Fragment {
 
         databaseFirebase = FirebaseDatabase.getInstance().getReference("QuestionTheme");
 
-        RecyclerView carouselRecyclerView = rootView.findViewById(R.id.carousel_recycler_view);
+        RecyclerView carouselRecyclerView = rootView.findViewById(R.id.CarouselRecyclerView);
         carouselRecyclerView.setLayoutManager(new CarouselLayoutManager());
-//        List<String> imageUrls = new ArrayList<>(); // Replace with your list of image URLs
-//        imageUrls.add("https://media.dolenglish.vn/PUBLIC/MEDIA/15114359-77ed-45bf-a9f9-3b0f018d3e00.jpg");
-//        imageUrls.add("https://idvielts.com/wp-content/uploads/2020/03/history.jpg");
-//        imageUrls.add("https://chuyennguyentrai.edu.vn/uploads/Trang/nangkhieu2020-2021/%C4%91%E1%BB%8Ba%20l%C3%BD/dia-ly.png");
 
-
-//        CarouselAdapter carouselAdapter = new CarouselAdapter(imageUrls);
-//        carouselRecyclerView.setAdapter(carouselAdapter);
         questionThemes = new ArrayList<>();
         carouselAdapter = new CarouselAdapter(getContext(), questionThemes);
         carouselRecyclerView.setAdapter(carouselAdapter);

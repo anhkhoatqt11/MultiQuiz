@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/carousel_recycler_view"
+        android:id="@+id/CarouselRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="196dp"
         android:layout_marginStart="24dp"

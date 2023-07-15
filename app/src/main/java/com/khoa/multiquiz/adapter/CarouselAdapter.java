@@ -1,5 +1,6 @@
 package com.khoa.multiquiz.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,7 +40,7 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CarouselViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CarouselViewHolder holder, @SuppressLint("RecyclerView") int position) {
         QuestionTheme questionTheme = questionThemes.get(position);
         String imageUrl = questionTheme.getLink_image();
         String nameQT = questionTheme.getTheme_name();
