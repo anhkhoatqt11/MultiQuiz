@@ -6,7 +6,7 @@ public class Room implements Serializable {
     String RoomID;
     String UserUID;
     String OpponentUID;
-    int QuestionThemeID;
+    String QuestionThemeID;
     int NumberOfQuestion;
 
     public Room(){
@@ -37,11 +37,11 @@ public class Room implements Serializable {
         UserUID = userUID;
     }
 
-    public int getQuestionThemeID() {
+    public String getQuestionThemeID() {
         return QuestionThemeID;
     }
 
-    public void setQuestionThemeID(int questionThemeID) {
+    public void setQuestionThemeID(String questionThemeID) {
         QuestionThemeID = questionThemeID;
     }
 

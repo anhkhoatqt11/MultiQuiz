@@ -3,7 +3,7 @@ package com.khoa.multiquiz;
 import java.io.Serializable;
 
 public class QuestionTheme implements Serializable {
-     int id;
+     String id;
      String link_image;
      String theme_name;
 //
@@ -14,11 +14,11 @@ public class QuestionTheme implements Serializable {
 //    }
 
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

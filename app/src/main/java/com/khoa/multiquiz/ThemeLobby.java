@@ -6,6 +6,7 @@ import android.app.Person;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -83,7 +84,7 @@ public class ThemeLobby extends AppCompatActivity {
         CreateRoomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createNewRoomToDatabase(questionTheme.getId(), currentUser.getUid(), 5);
+                createNewRoomToDatabase(questionTheme.getId(), currentUser.getUid(), 3);
                 Intent intent = new Intent(ThemeLobby.this, WaitingIngame.class);
                 intent.putExtra("Room", roomInfo);
                 startActivity(intent);
@@ -126,7 +127,7 @@ public class ThemeLobby extends AppCompatActivity {
 
     }
 
-    private void createNewRoomToDatabase(int QuestionThemeID, String UserUID, int NumberOfQuestion){
+    private void createNewRoomToDatabase(String QuestionThemeID, String UserUID, int NumberOfQuestion){
         String RoomID = String.valueOf(UserUID.substring(UserUID.length()-5));
 
         roomInfo.setRoomID(RoomID);

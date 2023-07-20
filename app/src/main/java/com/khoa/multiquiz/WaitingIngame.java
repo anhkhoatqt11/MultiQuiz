@@ -60,6 +60,7 @@ public class WaitingIngame extends AppCompatActivity {
                 }
                 if (readRoomData.getOpponentUID() != null){
                     Intent intent = new Intent(WaitingIngame.this, Ingame.class);
+                    intent.putExtra("Room", currentRoom);
                     startActivity(intent);
                 }
 
