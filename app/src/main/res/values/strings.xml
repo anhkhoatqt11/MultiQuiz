@@ -19,4 +19,6 @@
     <string name="player1_text">Người chơi 1</string>
     <string name="example_question">Đây là quốc kì của quốc gia nào?</string>
     <string name="answer">Answer</string>
+    <string name="status_waiting">Đang chờ sẵn sàng</string>
+    <string name="ready">Sẵn sàng</string>
 </resources>

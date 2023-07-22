@@ -11,50 +11,110 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:padding="20dp">
-
+        android:padding="20dp"
+        android:orientation="vertical">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/RoomOwnerImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/img_useravatar"></ImageView>
-            <TextView
-                android:id="@+id/RoomOwnerName"
+            <Button
+                android:id="@+id/ReadyButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/name_demo"
-                android:textSize="20dp">
-            </TextView>
+                android:text="@string/ready"></Button>
         </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/RoomOwnerInfo"
+            android:baselineAligned="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/RoomOwnerImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/img_useravatar" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="2dp">
+
+                    <TextView
+                        android:id="@+id/RoomOwnerName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/player1_text" />
+
+                    <TextView
+                        android:id="@+id/RoomOwnerStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/status_waiting"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="20dp">
-
+        <LinearLayout
+            android:id="@+id/OpponentInfo"
+            android:baselineAligned="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/OpponentImage"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/img_useravatar"></ImageView>
-            <TextView
-                android:id="@+id/OpponentName"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/img_useravatar" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/name_demo"
-                android:textSize="20dp">
-            </TextView>
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                android:paddingTop="2dp">
+
+                <TextView
+                    android:id="@+id/OpponentName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/player1_text" />
+
+                <TextView
+                    android:id="@+id/OpponentStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_waiting"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
         </LinearLayout>
 
-
+        </LinearLayout>
 
     </LinearLayout>
 

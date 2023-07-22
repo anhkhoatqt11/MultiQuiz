@@ -65,6 +65,8 @@
                     android:id="@+id/OpponentName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:textAlignment="gravity"
                     android:text="@string/player1_text" />
 
                 <TextView

@@ -53,13 +53,14 @@ public class ThemeLobby extends AppCompatActivity {
 
         TopAppBar = findViewById(R.id.ThemeLobbyTopAppBar);
         CreateRoomButton = findViewById(R.id.CreateRoomButton);
-        FirebaseAuth MAuth = FirebaseAuth.getInstance();
-        currentUser = MAuth.getCurrentUser();
-        roomInfo = new Room();
-        questionTheme = new QuestionTheme();
-        database = FirebaseDatabase.getInstance();
         LobbyRecyclerView = findViewById(R.id.LobbyRecyclerView);
 
+        FirebaseAuth MAuth = FirebaseAuth.getInstance();
+        currentUser = MAuth.getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+
+        roomInfo = new Room();
+        questionTheme = new QuestionTheme();
         LobbyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         roomLists = new ArrayList<>();
         lobbyAdapter = new LobbyAdapter(ThemeLobby.this, roomLists);
@@ -129,12 +130,16 @@ public class ThemeLobby extends AppCompatActivity {
 
     private void createNewRoomToDatabase(String QuestionThemeID, String UserUID, int NumberOfQuestion){
         String RoomID = String.valueOf(UserUID.substring(UserUID.length()-5));
+        Random rnd = new Random();
 
         roomInfo.setRoomID(RoomID);
         roomInfo.setQuestionThemeID(QuestionThemeID);
         roomInfo.setUserUID(UserUID);
         roomInfo.setNumberOfQuestion(NumberOfQuestion);
-
+        roomInfo.setOwnerState(0);
+        roomInfo.setOpponentState(0);
+        roomInfo.setOwnerPoint(0);
+        roomInfo.setOwnerPoint(0);
 
         databaseReferenceLobbyCreation = database.getReference().child("Lobby").child(RoomID);
         databaseReferenceLobbyCreation.setValue(roomInfo);
@@ -142,11 +147,10 @@ public class ThemeLobby extends AppCompatActivity {
 
     private void createOpponentInfo(String UserUID, Room room){
 
-
-
         databaseReferenceCreateOpponent = database.getReference().child("Lobby").child(room.getRoomID()).child("opponentUID");
         databaseReferenceCreateOpponent.setValue(UserUID);
 
     }
+
 
 }
