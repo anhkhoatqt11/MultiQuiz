@@ -1,7 +1,7 @@
 
 <resources>
     <color name="seed">#86e7b8</color>
-    <color name="md_theme_light_primary">#006C4A</color>
+    <color name="md_theme_light_primary">#000000</color>
     <color name="md_theme_light_onPrimary">#FFFFFF</color>
     <color name="md_theme_light_primaryContainer">#8BF7C4</color>
     <color name="md_theme_light_onPrimaryContainer">#002114</color>
@@ -17,7 +17,7 @@
     <color name="md_theme_light_errorContainer">#FFDAD6</color>
     <color name="md_theme_light_onError">#FFFFFF</color>
     <color name="md_theme_light_onErrorContainer">#410002</color>
-    <color name="md_theme_light_background">#F7FFEC</color>
+    <color name="md_theme_light_background">#FFFFFF</color> <!-- Background -->
     <color name="md_theme_light_onBackground">#082100</color>
     <color name="md_theme_light_surface">#F7FFEC</color>
     <color name="md_theme_light_onSurface">#082100</color>

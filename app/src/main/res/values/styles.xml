@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="BrandText" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">42dp</item>
+        <item name="android:textSize">42sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="DescriptionText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/inter_light</item>
     </style>
     <style name="TextStyle" parent="@android:style/TextAppearance">
         <item name="android:textSize">20sp</item>

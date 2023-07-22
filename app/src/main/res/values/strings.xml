@@ -21,4 +21,8 @@
     <string name="answer">Answer</string>
     <string name="status_waiting">Đang chờ sẵn sàng</string>
     <string name="ready">Sẵn sàng</string>
+    <string name="quiz">Giải đố</string>
+    <string name="online">trực tuyến</string>
+    <string name="splashscreen_description">Tham gia MultiQuiz để khám phá những thông tin bổ ích</string>
+    <string name="textsplashscreen">Giải đố \ntrực tuyến</string>
 </resources>

@@ -342,11 +342,6 @@ public class Ingame extends AppCompatActivity {
         }.start();
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
     static String getAlphaNumericString(int n)
     {
 
@@ -372,5 +367,9 @@ public class Ingame extends AppCompatActivity {
         }
 
         return sb.toString();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
