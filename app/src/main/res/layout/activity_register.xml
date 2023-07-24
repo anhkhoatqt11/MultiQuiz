@@ -1,79 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register"
-    android:gravity="center"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="30dp">
 
-    <TextView
-        style="@style/BrandText"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MultiQuiz"></TextView>
+        android:src="@mipmap/ic_launcher">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_description"
-        android:textColor = "?android:textColorPrimary">
-    </TextView>
+    </ImageView>
 
-    <EditText
-        android:id="@+id/emailTextViewRegister"
+    <ImageView
+        android:id="@+id/RegisterScreenIllustration"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/ic_email"
-        android:drawablePadding="10dp"
-        android:hint="@string/email_address"
-        android:inputType="textEmailAddress"
-        android:textSize="14dp">
-    </EditText>
+        android:layout_height="wrap_content"
+        android:src="@drawable/registerscreenillustration"
+        android:layout_marginTop="30dp">
+    </ImageView>
 
-
-    <EditText
-        android:id="@+id/passwordTextViewRegister"
+    <LinearLayout
+        android:id="@+id/MenuTextLinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:background="@drawable/custom_input"
-        android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="10dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:textSize="14dp">
-    </EditText>
-
-    <ProgressBar
-        android:id="@+id/progressBarRegister"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"></ProgressBar>
+        android:layout_below="@+id/RegisterScreenIllustration"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical">
+        <TextView
+            style="@style/MenuText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/register" />
 
-    <TextView
-        android:id="@+id/loginSwitchTextView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_switch"
-        android:textColor = "?android:textColorPrimary">
-    </TextView>
+        android:layout_below="@+id/MenuTextLinearLayout"
+        android:orientation="vertical"
+        android:gravity="center">
 
-</LinearLayout>
+
+        <EditText
+            android:id="@+id/emailTextViewRegister"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:textSize="14dp">
+        </EditText>
+
+        <EditText
+            android:id="@+id/passwordTextViewRegister"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="10dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textSize="14dp">
+        </EditText>
+
+        <ProgressBar
+            android:id="@+id/progressBarRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"></ProgressBar>
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/register" />
+
+        <TextView
+            android:id="@+id/loginSwitchTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_switch"
+            android:textColor = "?android:textColorPrimary">
+        </TextView>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

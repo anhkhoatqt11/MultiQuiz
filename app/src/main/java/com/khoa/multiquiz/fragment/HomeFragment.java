@@ -1,26 +1,40 @@
 package com.khoa.multiquiz.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.carousel.CarouselLayoutManager;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.khoa.multiquiz.Profile;
 import com.khoa.multiquiz.QuestionTheme;
 import com.khoa.multiquiz.R;
 import com.khoa.multiquiz.ThemeLobby;
 import com.khoa.multiquiz.adapter.CarouselAdapter;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
@@ -29,21 +43,30 @@ public class HomeFragment extends Fragment {
     DatabaseReference databaseFirebase;
     ArrayList<QuestionTheme> questionThemes;
     CarouselAdapter carouselAdapter;
+    ImageView UserAvatar;
+    FirebaseStorage storage;
+    FirebaseUser currentUser;
+    StorageReference storageReferenceAvatar;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_mainpage, container, false);
 
+        UserAvatar = rootView.findViewById(R.id.UserAvatar);
+        RecyclerView carouselRecyclerView = rootView.findViewById(R.id.CarouselRecyclerView);
+
+        storage = FirebaseStorage.getInstance();
+        FirebaseAuth MAuth = FirebaseAuth.getInstance();
+        currentUser = MAuth.getCurrentUser();
 
         databaseFirebase = FirebaseDatabase.getInstance().getReference("QuestionTheme");
-
-        RecyclerView carouselRecyclerView = rootView.findViewById(R.id.CarouselRecyclerView);
         carouselRecyclerView.setLayoutManager(new CarouselLayoutManager());
-
         questionThemes = new ArrayList<>();
         carouselAdapter = new CarouselAdapter(getContext(), questionThemes);
         carouselRecyclerView.setAdapter(carouselAdapter);
+
+        getUserAvatarImage();
         databaseFirebase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -59,8 +82,6 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-
-
         carouselAdapter.setOnClickListener(new CarouselAdapter.OnClickListener(){
             @Override
             public void onClick(int position, QuestionTheme questionTheme) {
@@ -69,7 +90,53 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        UserAvatar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Profile.class);
+                startActivity(intent);
+            }
+        });
         return rootView;
+    }
+
+    private void getUserAvatarImage(){
+        storageReferenceAvatar = storage.getReference();
+        String childPath = "users/" + currentUser.getUid() + "/avatar.jpg";
+        Log.e("childPath", childPath);
+        storageReferenceAvatar.child(childPath).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                String imageUrl = uri.toString();
+                Picasso.get().load(imageUrl).into(UserAvatar);
+            }
+
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                storageReferenceAvatar.child("DefaultAvatar/GeneralProfileImage.png").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        String imageUrl = uri.toString();
+                        Picasso.get().load(imageUrl).into(new Target() {
+                            @Override
+                            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                                UserAvatar.setImageBitmap(bitmap);
+                            }
+
+                            @Override
+                            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+
+                            }
+
+                            @Override
+                            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                            }
+                        });
+                    }
+                });
+            }
+        });
     }
 }

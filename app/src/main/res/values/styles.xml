@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="BrandText" parent="TextAppearance.AppCompat">
+    <style name="IntroductionText" parent="TextAppearance.AppCompat">
         <item name="android:textSize">42sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="MenuText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="NameTextProfile" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="PartText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/inter_bold</item>
     </style>
     <style name="DescriptionText" parent="TextAppearance.AppCompat">
@@ -12,6 +24,17 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#aacbb4</item>
     </style>
-
-
+    <style name="Widget.App.Button.OutlinedButton.IconOnly" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+    <style name="roundedImageViewRounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

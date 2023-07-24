@@ -7,17 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.khoa.multiquiz.fragment.HomeFragment;
-import com.khoa.multiquiz.fragment.UserFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_mainpage_navigation:
                         selectedFragment = new HomeFragment();
                         break;
-                    case R.id.menu_userpage_navigation:
-                        selectedFragment = new UserFragment();
-                        break;
                     default:
                         return false;
                 }
@@ -61,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.FrameContainer, new HomeFragment()).commit();
+
+
+
 
         if (currentUser == null){
             Intent intent = new Intent(getApplicationContext(), Login.class);

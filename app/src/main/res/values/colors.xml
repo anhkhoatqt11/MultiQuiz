@@ -7,7 +7,7 @@
     <color name="md_theme_light_onPrimaryContainer">#002114</color>
     <color name="md_theme_light_secondary">#006E22</color>
     <color name="md_theme_light_onSecondary">#FFFFFF</color>
-    <color name="md_theme_light_secondaryContainer">#8EFA92</color>
+    <color name="md_theme_light_secondaryContainer">#FFFFFF</color>   <!-- Color of highlighted option of navigation bar -->
     <color name="md_theme_light_onSecondaryContainer">#002105</color>
     <color name="md_theme_light_tertiary">#256C27</color>
     <color name="md_theme_light_onTertiary">#FFFFFF</color>
@@ -19,10 +19,10 @@
     <color name="md_theme_light_onErrorContainer">#410002</color>
     <color name="md_theme_light_background">#FFFFFF</color> <!-- Background -->
     <color name="md_theme_light_onBackground">#082100</color>
-    <color name="md_theme_light_surface">#F7FFEC</color>
+    <color name="md_theme_light_surface">#FFFFFF</color> <!-- Background of room object in theme lobby-->
     <color name="md_theme_light_onSurface">#082100</color>
-    <color name="md_theme_light_surfaceVariant">#DCE5DD</color>
-    <color name="md_theme_light_onSurfaceVariant">#404943</color>
+    <color name="md_theme_light_surfaceVariant">#FFFFFF</color> <!-- Unknow -->
+    <color name="md_theme_light_onSurfaceVariant">#404943</color> <!-- Background off unselected item in navigation bar-->
     <color name="md_theme_light_outline">#707973</color>
     <color name="md_theme_light_inverseOnSurface">#CEFFAE</color>
     <color name="md_theme_light_inverseSurface">#133800</color>

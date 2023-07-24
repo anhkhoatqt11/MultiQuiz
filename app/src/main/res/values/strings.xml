@@ -23,6 +23,12 @@
     <string name="ready">Sẵn sàng</string>
     <string name="quiz">Giải đố</string>
     <string name="online">trực tuyến</string>
-    <string name="splashscreen_description">Tham gia MultiQuiz để khám phá những thông tin bổ ích</string>
+    <string name="splashscreen_description">Tham gia hoặc tạo câu hỏi giải đố trực tuyến</string>
     <string name="textsplashscreen">Giải đố \ntrực tuyến</string>
+    <string name="leaderboard">Bảng xếp hạng</string>
+    <string name="edit_info_title">Chỉnh sửa thông tin</string>
+    <string name="avatar">Ảnh đại diện</string>
+    <string name="username_label">Tên người dùng</string>
+    <string name="save_label">Lưu thông tin</string>
+    <string name="userinfo_label">Thông tin người dùng</string>
 </resources>
