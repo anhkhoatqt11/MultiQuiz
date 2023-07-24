@@ -31,4 +31,6 @@
     <string name="username_label">Tên người dùng</string>
     <string name="save_label">Lưu thông tin</string>
     <string name="userinfo_label">Thông tin người dùng</string>
+    <string name="create_new_room_label">Tạo phòng chơi mới</string>
+    <string name="demo_roomname">Phòng của Trương Anh Khoa</string>
 </resources>

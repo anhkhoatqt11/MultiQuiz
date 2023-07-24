@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.DuelFragment">
+
+    <LinearLayout
+        android:id="@+id/TopAppLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/ic_launcher">
+
+            </ImageView>
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="right">-->
+<!--            -->
+<!--        </LinearLayout>-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ScreenNameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TopAppLayout"
+        android:orientation="horizontal"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            style="@style/MenuText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đối đầu (1vs1)" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ChooseThemeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ScreenNameLayout"
+        android:orientation="vertical"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            style="@style/PartText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/picktheme_title"
+            android:layout_marginStart="4dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/CarouselRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="196dp"
+            android:layout_marginTop="18dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    </LinearLayout>
+
+</RelativeLayout>

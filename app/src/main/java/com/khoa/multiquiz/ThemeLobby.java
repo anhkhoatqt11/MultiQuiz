@@ -3,12 +3,18 @@ package com.khoa.multiquiz;
 import static kotlin.random.RandomKt.Random;
 
 import android.app.Person;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,6 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,8 +33,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.khoa.multiquiz.adapter.LobbyAdapter;
 import com.khoa.multiquiz.fragment.HomeFragment;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -36,16 +48,21 @@ public class ThemeLobby extends AppCompatActivity {
     public com.google.android.material.appbar.MaterialToolbar TopAppBar;
     public Button CreateRoomButton;
     public QuestionTheme questionTheme;
+    String imageUrl;
+    ImageView ThemeImage;
     FirebaseDatabase database;
     DatabaseReference databaseReferenceLobbyCreation;
     DatabaseReference databaseReferenceLobbyFetching;
     DatabaseReference databaseReferenceCreateOpponent;
     FirebaseUser currentUser;
+    FirebaseStorage storage;
     Room roomInfo;
     ArrayList<Room> roomLists;
+    ArrayList<String> OwnerAvatarPath;
     RecyclerView LobbyRecyclerView;
     LobbyAdapter lobbyAdapter;
-
+    SharedPreferences sharedPreferences;
+    StorageReference storageReferenceAvatar;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,16 +71,20 @@ public class ThemeLobby extends AppCompatActivity {
         TopAppBar = findViewById(R.id.ThemeLobbyTopAppBar);
         CreateRoomButton = findViewById(R.id.CreateRoomButton);
         LobbyRecyclerView = findViewById(R.id.LobbyRecyclerView);
+        ThemeImage = findViewById(R.id.ThemeImage);
+        sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+
 
         FirebaseAuth MAuth = FirebaseAuth.getInstance();
         currentUser = MAuth.getCurrentUser();
         database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
 
         roomInfo = new Room();
         questionTheme = new QuestionTheme();
         LobbyRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         roomLists = new ArrayList<>();
-        lobbyAdapter = new LobbyAdapter(ThemeLobby.this, roomLists);
+        lobbyAdapter = new LobbyAdapter(ThemeLobby.this, roomLists, storage);
         LobbyRecyclerView.setAdapter(lobbyAdapter);
 
         TopAppBar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -81,11 +102,13 @@ public class ThemeLobby extends AppCompatActivity {
         if (questionTheme != null){
             TopAppBar.setTitle(questionTheme.getTheme_name());
         }
+        getThemeImage();
 
         CreateRoomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createNewRoomToDatabase(questionTheme.getId(), currentUser.getUid(), 3);
+                String UserDisplayName = sharedPreferences.getString("displayName", "");
+                createNewRoomToDatabase(questionTheme.getId(), currentUser.getUid(), UserDisplayName, 10);
                 Intent intent = new Intent(ThemeLobby.this, WaitingIngame.class);
                 intent.putExtra("Room", roomInfo);
                 startActivity(intent);
@@ -128,10 +151,13 @@ public class ThemeLobby extends AppCompatActivity {
 
     }
 
-    private void createNewRoomToDatabase(String QuestionThemeID, String UserUID, int NumberOfQuestion){
+    private void createNewRoomToDatabase(String QuestionThemeID, String UserUID, String UserDisplayName, int NumberOfQuestion){
         String RoomID = String.valueOf(UserUID.substring(UserUID.length()-5));
+        String RoomName = "Phòng của " + UserDisplayName;
         Random rnd = new Random();
 
+        roomInfo.setRoomName(RoomName);
+        roomInfo.setOwnerCreatedName(UserDisplayName);
         roomInfo.setRoomID(RoomID);
         roomInfo.setQuestionThemeID(QuestionThemeID);
         roomInfo.setUserUID(UserUID);
@@ -150,6 +176,10 @@ public class ThemeLobby extends AppCompatActivity {
         databaseReferenceCreateOpponent = database.getReference().child("Lobby").child(room.getRoomID()).child("opponentUID");
         databaseReferenceCreateOpponent.setValue(UserUID);
 
+    }
+
+    private void getThemeImage(){
+        Picasso.get().load(questionTheme.getLink_image()).into(ThemeImage);
     }
 
 

@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_duel"
         android:title="Duel"/>
     <item
-        android:id="@+id/menu_multiplayer_navigation"
+        android:id="@+id/menu_group_navigation"
         android:enabled="true"
-        android:icon="@drawable/ic_duel"
+        android:icon="@drawable/ic_group"
         android:title="Multiplayer"/>
     <item
         android:id="@+id/menu_leaderboard_navigation"

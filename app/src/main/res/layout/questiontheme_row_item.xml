@@ -3,23 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/carousel_item_container"
-    android:layout_width="150dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="4dp"
+    android:layout_marginStart="0dp"
     android:layout_marginEnd="4dp"
     android:foreground="?attr/selectableItemBackground"
     app:shapeAppearance="?attr/shapeAppearanceCornerExtraLarge">
 
+    <!-- The image view for the background image -->
     <ImageView
         android:id="@+id/questiontheme_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
-    <TextView
-        android:id="@+id/questiontheme_name"
+
+    <!-- A FrameLayout to hold the text and fog view -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@android:color/white"/>
+        android:layout_height="match_parent">
+        <!-- A view with a black fog at the bottom -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:background="#88000000"
+            android:layout_gravity="bottom" />
+        <!-- The text view to display the text -->
+        <TextView
+            android:id="@+id/questiontheme_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:layout_gravity="bottom|start"
+            android:text="Your Text Here" />
 
 
+    </FrameLayout>
 </com.google.android.material.carousel.MaskableFrameLayout>

@@ -61,4 +61,5 @@
     <color name="md_theme_dark_surfaceTint">#6FDBA9</color>
     <color name="md_theme_dark_outlineVariant">#404943</color>
     <color name="md_theme_dark_scrim">#000000</color>
+    <color name="lobby_card_backgroundcolor">#202426</color>
 </resources>

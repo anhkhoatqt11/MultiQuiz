@@ -69,21 +69,21 @@
         android:orientation="vertical"
         android:layout_marginTop="23dp">
 
-        <TextView
-            style="@style/PartText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/picktheme_title" />
+<!--        <TextView-->
+<!--            style="@style/PartText"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/picktheme_title" />-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/CarouselRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="196dp"
-            android:layout_marginTop="18dp"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/CarouselRecyclerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="196dp"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:clipChildren="false"-->
+<!--            android:clipToPadding="false"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/textView2"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
 
     </LinearLayout>
 

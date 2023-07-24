@@ -1,6 +1,8 @@
 package com.khoa.multiquiz;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -41,7 +43,7 @@ public class Profile extends AppCompatActivity {
     FirebaseFirestore firestore;
     StorageReference storageReferenceAvatar;
     CollectionReference collectionReferenceUserData;
-
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,7 @@ public class Profile extends AppCompatActivity {
         LogoutButton = findViewById(R.id.LogoutButon);
         AvatarImage = findViewById(R.id.AvatarImage);
         UserDisplayName = findViewById(R.id.UserDisplayName);
+        sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
 
         firestore = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
@@ -149,6 +152,9 @@ public class Profile extends AppCompatActivity {
     private void logoutUser(){
         FirebaseAuth MAuth = FirebaseAuth.getInstance();
         MAuth.signOut();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
         Intent intent = new Intent(Profile.this, Login.class);
         startActivity(intent);
         finish();

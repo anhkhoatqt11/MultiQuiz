@@ -3,6 +3,8 @@ package com.khoa.multiquiz;
 import java.io.Serializable;
 
 public class Room implements Serializable {
+    String RoomName;
+    String OwnerCreatedName;
     String RoomID;
     String UserUID;
     String OpponentUID;
@@ -17,6 +19,22 @@ public class Room implements Serializable {
 
     public Room(){
 
+    }
+
+    public String getOwnerCreatedName() {
+        return OwnerCreatedName;
+    }
+
+    public void setOwnerCreatedName(String ownerCreatedName) {
+        OwnerCreatedName = ownerCreatedName;
+    }
+
+    public String getRoomName() {
+        return RoomName;
+    }
+
+    public void setRoomName(String roomName) {
+        RoomName = roomName;
     }
 
     public String getOpponentUID() {

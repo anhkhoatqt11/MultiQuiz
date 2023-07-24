@@ -36,6 +36,8 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
     @Override
     public CarouselViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.questiontheme_row_item, parent, false);
+        int itemWidth = parent.getWidth() / 3 ;
+        view.setLayoutParams(new RecyclerView.LayoutParams(itemWidth, RecyclerView.LayoutParams.MATCH_PARENT));
         return new CarouselViewHolder(view);
     }
 
