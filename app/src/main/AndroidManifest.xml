@@ -37,11 +37,15 @@
             android:exported="true">
         </activity>
         <activity
-            android:name=".Ingame"
+            android:name=".DuelIngame"
             android:exported="true">
         </activity>
         <activity
-            android:name=".WaitingIngame"
+            android:name=".DuelWaitingIngame"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".DuelResult"
             android:exported="true">
         </activity>
         <activity

@@ -2,20 +2,13 @@ package com.khoa.multiquiz;
 
 import static kotlin.random.RandomKt.Random;
 
-import android.app.Person;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,9 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,9 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.khoa.multiquiz.adapter.LobbyAdapter;
-import com.khoa.multiquiz.fragment.HomeFragment;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -58,7 +46,6 @@ public class ThemeLobby extends AppCompatActivity {
     FirebaseStorage storage;
     Room roomInfo;
     ArrayList<Room> roomLists;
-    ArrayList<String> OwnerAvatarPath;
     RecyclerView LobbyRecyclerView;
     LobbyAdapter lobbyAdapter;
     SharedPreferences sharedPreferences;
@@ -66,7 +53,7 @@ public class ThemeLobby extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acitivty_theme_lobby);
+        setContentView(R.layout.acitivty_duel_theme_lobby);
 
         TopAppBar = findViewById(R.id.ThemeLobbyTopAppBar);
         CreateRoomButton = findViewById(R.id.CreateRoomButton);
@@ -109,7 +96,7 @@ public class ThemeLobby extends AppCompatActivity {
             public void onClick(View view) {
                 String UserDisplayName = sharedPreferences.getString("displayName", "");
                 createNewRoomToDatabase(questionTheme.getId(), currentUser.getUid(), UserDisplayName, 10);
-                Intent intent = new Intent(ThemeLobby.this, WaitingIngame.class);
+                Intent intent = new Intent(ThemeLobby.this, DuelWaitingIngame.class);
                 intent.putExtra("Room", roomInfo);
                 startActivity(intent);
 
@@ -142,7 +129,7 @@ public class ThemeLobby extends AppCompatActivity {
                     createOpponentInfo(currentUser.getUid(),room);
                 }
 
-                Intent intent = new Intent(ThemeLobby.this, WaitingIngame.class);
+                Intent intent = new Intent(ThemeLobby.this, DuelWaitingIngame.class);
                 intent.putExtra("Room", room);
                 startActivity(intent);
             }

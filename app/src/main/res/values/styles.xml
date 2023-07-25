@@ -16,6 +16,37 @@
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily">@font/inter_bold</item>
     </style>
+    <style name="QuestionText" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="OwnerNameTextWaitingIngame" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="OwnerStatusWaitingIngame" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="OpponentNameTextWaitingIngame" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="OpponentStatusWaitingIngame" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
+    <style name="RoomName" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="CompetitiveResult" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
     <style name="DescriptionText" parent="TextAppearance.AppCompat">
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/inter_light</item>

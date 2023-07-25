@@ -33,4 +33,13 @@
     <string name="userinfo_label">Thông tin người dùng</string>
     <string name="create_new_room_label">Tạo phòng chơi mới</string>
     <string name="demo_roomname">Phòng của Trương Anh Khoa</string>
+    <string name="player2_text">Người chơi 2</string>
+    <string name="win">CHIẾN THẮNG</string>
+    <string name="resulttitle_demo">BẠN THUA</string>
+    <string name="example_roomname">Phòng của Trương Anh Khoa</string>
+    <string name="edit_label">Sửa</string>
+    <string name="roomname_label">Tên phòng</string>
+    <string name="cancel">Huỷ</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="numberofquestion_label">Số câu hỏi</string>
 </resources>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DuelResult">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/ResultTitleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ResultTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/resulttitle_demo"
+                    style="@style/MenuText"
+                    android:gravity="center"/> <!-- Center the text in the LinearLayout -->
+
+                <ImageView
+                    android:id="@+id/ReturnButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_close"
+                    android:layout_gravity="end"> <!-- Align the ImageView to the right -->
+
+                </ImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ResultDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ResultTitleLayout"
+                android:background="@drawable/result_dashboad_shape"
+                android:orientation="horizontal"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/OwnerAvatar"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/img_useravatar"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/roundedImageViewRounded">
+
+                        </com.google.android.material.imageview.ShapeableImageView>
+
+                        <TextView
+                            android:id="@+id/OwnerPoint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="999"
+                            android:textColor="@android:color/white"
+                            style="@style/PartText"
+                            android:layout_marginLeft="10dp">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp">
+
+                        <TextView
+                            android:id="@+id/OwnerName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/player1_text"
+                            android:textColor="@android:color/white">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/OwnerCompetitiveResult"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/win"
+                            android:textColor="@android:color/white"
+                            style="@style/CompetitiveResult">
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="right">
+
+                        <TextView
+                            android:id="@+id/OpponentPoint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="999"
+                            android:textColor="@android:color/white"
+                            style="@style/PartText"
+                            android:layout_marginRight="10dp">
+                        </TextView>
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/OpponentAvatar"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/img_useravatar"
+                            android:scaleType="centerCrop"
+                            app:shapeAppearanceOverlay="@style/roundedImageViewRounded">
+
+                        </com.google.android.material.imageview.ShapeableImageView>
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="20dp">
+
+                        <TextView
+                            android:id="@+id/OpponentName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/player2_text"
+                            android:textColor="@android:color/white"
+                            android:gravity="right">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/OpponentCompetitiveResult"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/win"
+                            android:textColor="@android:color/white"
+                            style="@style/CompetitiveResult"
+                            android:gravity="right">
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/AnswerPartLayoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ResultDashboard"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/PartText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Các câu trả lời" />
+
+            </LinearLayout>
+
+
+                <ListView
+                    android:id="@+id/UserAnswerListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_below="@+id/AnswerPartLayoutName"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="10.0sp">
+                </ListView>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+</RelativeLayout>
