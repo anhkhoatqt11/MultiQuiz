@@ -106,8 +106,6 @@ public class DuelWaitingIngame extends AppCompatActivity {
 
     }
 
-
-
     private void checkStatusOfRoomAndUser() {
         databaseReferenceRoom = database.getReference().child("Lobby").child(currentRoom.getRoomID());
         databaseReferenceRoom.addValueEventListener(CheckRoomStatus = new ValueEventListener() {

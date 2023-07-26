@@ -17,6 +17,7 @@ import com.khoa.multiquiz.Room;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder> {
 
@@ -112,6 +113,15 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.Questi
         for (int i = 0; i < groupQuestionArrayList.size(); i++) {
             groupQuestionArrayList.get(i).setQuestionNumber(i + 1);
         }
+        notifyDataSetChanged();
+    }
+    public void sortDataByQuestionNumber() {
+        Collections.sort(groupQuestionArrayList, new Comparator<GroupQuestion>() {
+            @Override
+            public int compare(GroupQuestion q1, GroupQuestion q2) {
+                return q1.getQuestionNumber() - q2.getQuestionNumber();
+            }
+        });
         notifyDataSetChanged();
     }
 }

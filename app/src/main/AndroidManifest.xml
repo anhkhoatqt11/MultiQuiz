@@ -65,6 +65,10 @@
             android:name=".GroupQuestionDetail"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".GroupCollection"
+            android:exported="true">
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

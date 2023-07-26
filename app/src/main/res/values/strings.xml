@@ -53,4 +53,6 @@
     <string name="done">Xong</string>
     <string name="time_of_question">Thời gian của câu hỏi</string>
     <string name="add_answer">Thêm đáp án</string>
+    <string name="demo_questionset_name">Bộ câu hỏi về lịch sử</string>
+    <string name="demo_questionset_collection">Câu hỏi vè lịch sử</string>
 </resources>

@@ -14,6 +14,7 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/ButtonCancelCreateQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
@@ -22,14 +23,16 @@
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/CreateQuestionSetTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tạo câu hỏi"
+            android:text="Tạo bộ câu hỏi"
             style="@style/ActionButton"
             android:gravity="center"
             android:layout_weight="1" />
 
         <TextView
+            android:id="@+id/ButtonSaveQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"

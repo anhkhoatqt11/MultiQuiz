@@ -9,6 +9,7 @@ import java.util.List;
 
 public class GroupQuestion implements Serializable {
 
+    String QuestionID;
     int QuestionNumber;
     int QuestionTime;
     String QuestionText;
@@ -18,6 +19,14 @@ public class GroupQuestion implements Serializable {
 
     public GroupQuestion(){
 
+    }
+
+    public String getQuestionID() {
+        return QuestionID;
+    }
+
+    public void setQuestionID(String questionID) {
+        QuestionID = questionID;
     }
 
     public int getQuestionNumber() {

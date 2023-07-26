@@ -3,6 +3,7 @@ package com.khoa.multiquiz;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -18,6 +19,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class GroupQuestionDetail extends AppCompatActivity {
@@ -28,7 +31,8 @@ public class GroupQuestionDetail extends AppCompatActivity {
     TextView BackPressButton, SaveQuestionButton, CreateQuestionTitle;
     EditText QuestionEditText, Answer0EditText, Answer1EditText, Answer2EditText, Answer3EditText;
     CheckBox CheckBoxAnswer0, CheckBoxAnswer1, CheckBoxAnswer2, CheckBoxAnswer3;
-    GroupQuestion groupQuestion;
+    GroupQuestion groupQuestion, existingGroupQuestion;
+    GroupQuestionSetInfo groupQuestionSetInfo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,7 +63,8 @@ public class GroupQuestionDetail extends AppCompatActivity {
         editMode = getIntent().getBooleanExtra("EditMode", false);
         if (editMode) {
             CreateQuestionTitle.setText("Chỉnh sửa câu hỏi");
-            GroupQuestion existingGroupQuestion = (GroupQuestion) getIntent().getSerializableExtra("GroupQuestionData");
+            existingGroupQuestion = (GroupQuestion) getIntent().getSerializableExtra("GroupQuestionData");
+            groupQuestionSetInfo = (GroupQuestionSetInfo) getIntent().getSerializableExtra("QuestionSetInfo");
             QuestionNumber = existingGroupQuestion.getQuestionNumber();
             TimeAutoCompleteTextView.setText(String.valueOf(existingGroupQuestion.getQuestionTime()));
             QuestionEditText.setText(existingGroupQuestion.getQuestionText());
@@ -71,6 +76,8 @@ public class GroupQuestionDetail extends AppCompatActivity {
             int correctAnswerID = existingGroupQuestion.getCorrectAnswerID();;
             setCheckBoxCheck(correctAnswerID);
         }
+
+        groupQuestionSetInfo = (GroupQuestionSetInfo) getIntent().getSerializableExtra("QuestionSetInfo");
 
         BackPressButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,9 +209,14 @@ public class GroupQuestionDetail extends AppCompatActivity {
 
         Intent resultIntent = new Intent();
         if (!editMode) {
+            if (groupQuestionSetInfo != null){
+                groupQuestion.setQuestionSetID(groupQuestionSetInfo.getQuestonSetID());
+            }
             resultIntent.putExtra("GroupQuestionCreated", groupQuestion);
         } else {
             groupQuestion.setQuestionNumber(QuestionNumber);
+            groupQuestion.setQuestionID(existingGroupQuestion.getQuestionID());
+            groupQuestion.setQuestionSetID(groupQuestionSetInfo.getQuestonSetID());
             resultIntent.putExtra("UpdatedGroupQuestion", groupQuestion);
         }
         setResult(Activity.RESULT_OK, resultIntent);
