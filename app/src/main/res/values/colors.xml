@@ -63,4 +63,5 @@
     <color name="md_theme_dark_scrim">#000000</color>
     <color name="lobby_card_backgroundcolor">#202426</color>
     <color name="answer_card_backgroundcolor">#EFEEFC</color>
+    <color name="question_card_backgroundcolor">#80C6D6</color>
 </resources>

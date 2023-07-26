@@ -42,4 +42,15 @@
     <string name="cancel">Huỷ</string>
     <string name="confirm">Xác nhận</string>
     <string name="numberofquestion_label">Số câu hỏi</string>
+    <string name="create_question">Tạo bộ câu hỏi</string>
+    <string name="enter_code">Nhập mã tham gia</string>
+    <string name="save">Lưu</string>
+    <string name="general_info_create_match">Thông tin chung</string>
+    <string name="title">Tiêu đề</string>
+    <string name="description">Mô tả</string>
+    <string name="question_label">Câu hỏi</string>
+    <string name="add_question">Thêm câu hỏi</string>
+    <string name="done">Xong</string>
+    <string name="time_of_question">Thời gian của câu hỏi</string>
+    <string name="add_answer">Thêm đáp án</string>
 </resources>

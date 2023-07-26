@@ -99,9 +99,13 @@ public class ProfileEdit extends AppCompatActivity {
         SaveAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadAvatarImage();
-                changeUserData();
-                Toast.makeText(ProfileEdit.this, "Thay đổi thông tin thành công", Toast.LENGTH_SHORT).show();
+                if (!UsernameTextInput.getText().toString().equals("")) {
+                    uploadAvatarImage();
+                    changeUserData();
+                    Toast.makeText(ProfileEdit.this, "Thay đổi thông tin thành công", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(ProfileEdit.this, "Nhập tên người dùng", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -191,7 +195,7 @@ public class ProfileEdit extends AppCompatActivity {
     }
 
     private void changeUserData(){
-        if (UsernameTextInput.getText() != null) {
+        if (!UsernameTextInput.getText().toString().equals("")) {
             Map<String, Object> UserData = new HashMap<>();
             UserData.put("displayName", String.valueOf(UsernameTextInput.getText()));
             UserData.put("userUID", currentUser.getUid());

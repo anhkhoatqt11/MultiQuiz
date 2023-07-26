@@ -47,6 +47,10 @@
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/inter_bold</item>
     </style>
+    <style name="ActionButton" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+    </style>
     <style name="DescriptionText" parent="TextAppearance.AppCompat">
         <item name="android:textSize">24sp</item>
         <item name="android:fontFamily">@font/inter_light</item>

@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TopAppLayout"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:layout_marginTop="10dp">
@@ -54,6 +54,10 @@
             android:layout_height="wrap_content"
             android:text="Đối đầu (1vs1)" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tham gia trả lời câu hỏi giữa với một đối thủ với số lượng câu hỏi được định sẵn" />
     </LinearLayout>
 
 

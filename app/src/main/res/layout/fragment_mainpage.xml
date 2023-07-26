@@ -50,14 +50,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/TopAppLayout"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
 
         <TextView
             style="@style/MenuText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/main_page" />
-
+=
     </LinearLayout>
 
 

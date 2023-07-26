@@ -278,6 +278,10 @@ public class DuelWaitingIngame extends AppCompatActivity {
         NewRoomNameEditText.setText(CurrentRoomName);
         autoCompleteTextView.setText(String.valueOf(CurrentNumberOfQuestion));
 
+        if (!currentUser.getUid().equals(currentRoom.getUserUID())){
+            ButtonConfirm.setEnabled(false);
+        }
+
         List<String> items = Arrays.asList("5", "10", "15", "20");
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item, items);
         autoCompleteTextView.setAdapter(adapter);
