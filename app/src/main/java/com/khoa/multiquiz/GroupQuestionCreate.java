@@ -262,6 +262,7 @@ public class GroupQuestionCreate extends AppCompatActivity {
             QuestionSetData.put("questionSetDescription", String.valueOf(QuestionSetDescription.getText()));
             QuestionSetData.put("userUID", currentUser.getUid());
 
+            collectionReferenceGroupQuestionSet.document(groupQuestionSetInfo.getQuestonSetID()).set(QuestionSetData);
             collectionReferenceGroupQuestion.whereEqualTo("questionSetID", groupQuestionSetInfo.getQuestonSetID())
                     .get()
                     .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {

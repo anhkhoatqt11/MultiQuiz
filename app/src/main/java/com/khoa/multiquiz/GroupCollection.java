@@ -62,6 +62,15 @@ public class GroupCollection extends AppCompatActivity {
             }
         });
 
+        questionSetAdapter.setOnPlayButtonClickListener(new QuestionSetAdapter.OnPlayButtonClickListener() {
+            @Override
+            public void onPlayButtonClick(int position, GroupQuestionSetInfo groupQuestionSetInfo) {
+                Intent intent = new Intent(GroupCollection.this, GroupLobbyOwnerControl.class);
+                intent.putExtra("GroupQuestionSetInfo", groupQuestionSetInfo);
+                groupQuestionCreateLauncher.launch(intent);
+            }
+        });
+
     }
 
     private void getQuestionSetData(){

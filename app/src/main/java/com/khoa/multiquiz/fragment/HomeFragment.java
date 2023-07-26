@@ -54,42 +54,12 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_mainpage, container, false);
 
         UserAvatar = rootView.findViewById(R.id.UserAvatar);
-//        RecyclerView carouselRecyclerView = rootView.findViewById(R.id.CarouselRecyclerView);
 
         storage = FirebaseStorage.getInstance();
         FirebaseAuth MAuth = FirebaseAuth.getInstance();
         currentUser = MAuth.getCurrentUser();
 
-//        databaseFirebase = FirebaseDatabase.getInstance().getReference("QuestionTheme");
-//        carouselRecyclerView.setLayoutManager(new CarouselLayoutManager());
-//        questionThemes = new ArrayList<>();
-//        carouselAdapter = new CarouselAdapter(getContext(), questionThemes);
-//        carouselRecyclerView.setAdapter(carouselAdapter);
-
         getUserAvatarImage();
-//        databaseFirebase.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                questionThemes.clear();
-//                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-//                    QuestionTheme questionTheme = dataSnapshot. getValue(QuestionTheme.class);
-//                    questionThemes.add(questionTheme);
-//                }
-//                carouselAdapter.notifyDataSetChanged();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        });
-//        carouselAdapter.setOnClickListener(new CarouselAdapter.OnClickListener(){
-//            @Override
-//            public void onClick(int position, QuestionTheme questionTheme) {
-//                Intent intent = new Intent(getActivity(), ThemeLobby.class);
-//                intent.putExtra("Theme", questionTheme);
-//                startActivity(intent);
-//            }
-//        });
         UserAvatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

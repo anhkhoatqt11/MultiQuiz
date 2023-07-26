@@ -55,4 +55,8 @@
     <string name="add_answer">Thêm đáp án</string>
     <string name="demo_questionset_name">Bộ câu hỏi về lịch sử</string>
     <string name="demo_questionset_collection">Câu hỏi vè lịch sử</string>
+    <string name="join_list">Danh sách tham gia</string>
+    <string name="start">Bắt đầu</string>
+    <string name="close">Đóng</string>
+    <string name="join_code">Mã tham gia</string>
 </resources>

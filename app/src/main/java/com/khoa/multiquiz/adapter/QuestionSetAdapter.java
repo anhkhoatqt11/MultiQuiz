@@ -27,7 +27,18 @@ public class QuestionSetAdapter extends RecyclerView.Adapter<QuestionSetAdapter.
     public interface OnClickListener {
         void onClick(int position, GroupQuestionSetInfo groupQuestionSetInfo);
     }
+
+    public interface OnPlayButtonClickListener {
+        void onPlayButtonClick(int position, GroupQuestionSetInfo groupQuestionSetInfo);
+    }
+
+    public interface OnEditButtonClickListener {
+        void onEditButtonClick(int position, GroupQuestionSetInfo groupQuestionSetInfo);
+    }
+
     private OnClickListener onClickListener;
+    private OnPlayButtonClickListener onPlayButtonClickListener;
+    private OnEditButtonClickListener onEditButtonClickListener;
     Context context;
     private ArrayList<GroupQuestionSetInfo> questionSetInfos;
 
@@ -61,6 +72,26 @@ public class QuestionSetAdapter extends RecyclerView.Adapter<QuestionSetAdapter.
                 }
             }
         });
+
+        holder.PlayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onPlayButtonClickListener != null) {
+                    onPlayButtonClickListener.onPlayButtonClick(position, groupQuestionSetInfo);
+                }
+            }
+        });
+
+        holder.EditButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (onPlayButtonClickListener != null) {
+                    onPlayButtonClickListener.onPlayButtonClick(position, groupQuestionSetInfo);
+                }
+            }
+        });
+
+
     }
 
     public int getItemCount() {
@@ -70,6 +101,17 @@ public class QuestionSetAdapter extends RecyclerView.Adapter<QuestionSetAdapter.
     public void setOnClickListener(QuestionSetAdapter.OnClickListener onClickListener){
         this.onClickListener = onClickListener;
     }
+
+    public void setOnPlayButtonClickListener(QuestionSetAdapter.OnPlayButtonClickListener onPlayButtonClickListener){
+        this.onPlayButtonClickListener = onPlayButtonClickListener;
+    }
+
+    public void setOnEditButtonClickListener(QuestionSetAdapter.OnEditButtonClickListener onEditButtonClickListener){
+        this.onEditButtonClickListener = onEditButtonClickListener;
+    }
+
+
+
 
     public static class QuestionSetViewHolder extends RecyclerView.ViewHolder {
 
@@ -81,6 +123,10 @@ public class QuestionSetAdapter extends RecyclerView.Adapter<QuestionSetAdapter.
             QuestionSetDescriptionTextView = itemView.findViewById(R.id.QuestionSetDescription);
             PlayButton = itemView.findViewById(R.id.QuestionSetPlayButton);
             EditButton = itemView.findViewById(R.id.QuestionSetEditButton);
+
+
+
+
         }
     }
 
