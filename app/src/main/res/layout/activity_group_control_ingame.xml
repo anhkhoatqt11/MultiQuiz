@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/QuestionNumberLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/owner_background_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/QuestionNumberOfGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Câu hỏi 1"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
+        </TextView>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Số người đã trả lời: "-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMedium"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginBottom="10dp"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/ParticipantAnswered"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="30"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textAppearance="?attr/textAppearanceTitleMedium"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginBottom="10dp"/>-->
+<!--        </LinearLayout>-->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/TimerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/QuestionNumberLayout">
+
+        <ProgressBar
+            android:id="@+id/TimerProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/timer_gradient_background"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/QuestionTextLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TimerBar"
+        android:background="@drawable/question_media_shape"
+        android:padding="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/QuestionTextGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/QuestionText">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/FirstTwoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/QuestionTextLinearLayout"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp">
+
+        <!-- Button 1 -->
+        <Button
+            android:id="@+id/Answer1Button"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            app:cornerRadius="10dp"/>
+
+        <!-- Button 2 -->
+        <Button
+            android:id="@+id/Answer2Button"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:cornerRadius="10dp"/>
+
+    </LinearLayout>
+
+    <!-- Second Row -->
+    <LinearLayout
+        android:id="@+id/SecondTwoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/FirstTwoButton"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <!-- Button 3 -->
+        <Button
+            android:id="@+id/Answer3Button"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            app:cornerRadius="10dp"/>
+
+        <!-- Button 4 -->
+        <Button
+            android:id="@+id/Answer4Button"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            app:cornerRadius="10dp"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

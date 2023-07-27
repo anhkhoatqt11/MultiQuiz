@@ -3,6 +3,8 @@ package com.khoa.multiquiz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
@@ -68,9 +70,6 @@ public class MainActivity extends AppCompatActivity implements BottomSheetDialog
                     case R.id.menu_group_navigation:
                         selectedFragment = new GroupFragment();
                         break;
-                    case R.id.menu_leaderboard_navigation:_navigation:
-                        selectedFragment = new LeaderboardFragment();
-                        break;
                     default:
                         return false;
                 }
@@ -120,6 +119,9 @@ public class MainActivity extends AppCompatActivity implements BottomSheetDialog
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     Toast.makeText(MainActivity.this, "Mã tham gia hợp lệ", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, GroupLobbyWaiting.class);
+                    intent.putExtra("JoinCode", joinCode);
+                    startActivity(intent);
                 } else {
                     // The joinCode does not match any room ID, handle this case
                     // For example, show an error message, display an error dialog, etc.
@@ -133,5 +135,12 @@ public class MainActivity extends AppCompatActivity implements BottomSheetDialog
                 Toast.makeText(MainActivity.this, "Lỗi kết nối đến máy chủ", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    public void openFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.FrameContainer, fragment);
+        transaction.addToBackStack(null); // This allows you to navigate back to the previous fragment.
+        transaction.commit();
     }
 }

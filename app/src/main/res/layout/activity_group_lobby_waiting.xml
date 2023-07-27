@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".GroupLobbyOwnerControl">
 
@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/GroupQuestionSetName"
+            android:id="@+id/GroupQuestionSetNameWaiting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bộ câu hỏi về lịch sử"
@@ -23,6 +23,7 @@
             android:padding="8dp"
             android:textAppearance="?attr/textAppearanceTitleMedium"
             android:layout_gravity="center"
+            style="@style/PartText"
             android:layout_marginTop="20dp">
         </TextView>
 
@@ -35,18 +36,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mã tham gia: "
+                android:text="Người tạo:"
                 android:textColor="@android:color/white"
-                style="@style/MenuText"
+                style="@style/PartText"
                 android:layout_gravity="center"/>
 
             <TextView
-                android:id="@+id/JoinCode"
+                android:id="@+id/UserQuestionSetCreatedName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="309908"
+                android:text="@string/name_demo"
                 android:textColor="@android:color/white"
-                style="@style/MenuText"
+                style="@style/PartText"
                 android:layout_gravity="center"/>
 
         </LinearLayout>
@@ -59,49 +60,19 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/QuestionAndJoinCode"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:gravity="center">
     <TextView
         style="@style/PartText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/join_list" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/JoinerRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/QuestionPartText"
-            android:layout_marginTop="20dp">
-        </androidx.recyclerview.widget.RecyclerView>
+        android:text="Đang đợi bắt đầu" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
 
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/CloseGroupLobby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="90dp"
-        android:text="@string/close"
-        app:icon="@drawable/ic_close"/>
-
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/StartGroupLobby"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/start"
-        app:icon="@drawable/ic_start"/>
 
 </RelativeLayout>

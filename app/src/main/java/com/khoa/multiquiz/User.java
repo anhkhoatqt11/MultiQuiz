@@ -5,6 +5,8 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     String UserUID;
+    Long UserPoint;
+
 
     public User(){
 
@@ -16,5 +18,13 @@ public class User implements Serializable {
 
     public void setUserUID(String userUID) {
         UserUID = userUID;
+    }
+
+    public Long getUserPoint() {
+        return UserPoint;
+    }
+
+    public void setUserPoint(Long userPoint) {
+        UserPoint = userPoint;
     }
 }

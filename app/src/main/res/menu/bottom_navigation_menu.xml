@@ -15,9 +15,4 @@
         android:enabled="true"
         android:icon="@drawable/ic_group"
         android:title="Multiplayer"/>
-    <item
-        android:id="@+id/menu_leaderboard_navigation"
-        android:enabled="true"
-        android:icon="@drawable/ic_leaderboard"
-        android:title="@string/leaderboard"/>
 </menu>

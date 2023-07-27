@@ -1,5 +1,6 @@
 package com.khoa.multiquiz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +44,7 @@ public class GroupLobbyOwnerControl extends AppCompatActivity {
     RecyclerView ParticipantRecyclerView;
     ArrayList<User> userArrayList;
     ParticipantAdapter participantAdapter;
-    DatabaseReference databaseReferenceCreateLobby, databaseReferenceParticipant, databaseReferenceKickParticipant, databaseReferenceRemoveLobby;
+    DatabaseReference databaseReferenceCreateLobby, databaseReferenceParticipant, databaseReferenceKickParticipant, databaseReferenceRemoveLobby, databaseReferenceGeneralStatus;
 
 
     @Override
@@ -131,6 +132,18 @@ public class GroupLobbyOwnerControl extends AppCompatActivity {
     }
 
     private void setButtonFunction(){
+
+        StartGroupLobby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GroupLobbyOwnerControl.this, GroupControlIngame.class);
+                intent.putExtra("GroupQuestionSetInfo", groupQuestionSetInfo);
+                intent.putExtra("JoinID", JoinID);
+                setGeneralStatus(3);
+                startActivity(intent);
+            }
+        });
+
         CloseGroupLobby.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,6 +157,20 @@ public class GroupLobbyOwnerControl extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+
+    private void setGeneralStatus(int Status){
+
+        Map<String, Object> uploadGeneralStatus = new HashMap<>();
+        uploadGeneralStatus.put("generalStatus", Status);
+        databaseReferenceGeneralStatus = database.getReference().child("GroupLobby").child(JoinID);
+        databaseReferenceGeneralStatus.updateChildren(uploadGeneralStatus).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+            }
+        });
+
     }
 
     @Override

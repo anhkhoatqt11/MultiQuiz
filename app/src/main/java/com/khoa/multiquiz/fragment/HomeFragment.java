@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.khoa.multiquiz.MainActivity;
 import com.khoa.multiquiz.Profile;
 import com.khoa.multiquiz.QuestionTheme;
 import com.khoa.multiquiz.R;
@@ -47,6 +50,7 @@ public class HomeFragment extends Fragment {
     FirebaseStorage storage;
     FirebaseUser currentUser;
     StorageReference storageReferenceAvatar;
+    LinearLayout DualLinearLayout, GroupLinearLayout;
 
     @Nullable
     @Override
@@ -54,6 +58,8 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_mainpage, container, false);
 
         UserAvatar = rootView.findViewById(R.id.UserAvatar);
+        DualLinearLayout = rootView.findViewById(R.id.DuelLinearLayout);
+        GroupLinearLayout = rootView.findViewById(R.id.GroupLinearLayout);
 
         storage = FirebaseStorage.getInstance();
         FirebaseAuth MAuth = FirebaseAuth.getInstance();
@@ -65,6 +71,22 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), Profile.class);
                 startActivity(intent);
+            }
+        });
+
+        DualLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    DuelFragment targetFragment = new DuelFragment();
+                    ((MainActivity) requireActivity()).openFragment(targetFragment);
+            }
+        });
+
+        GroupLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GroupFragment targetFragment = new GroupFragment();
+                ((MainActivity) requireActivity()).openFragment(targetFragment);
             }
         });
         return rootView;

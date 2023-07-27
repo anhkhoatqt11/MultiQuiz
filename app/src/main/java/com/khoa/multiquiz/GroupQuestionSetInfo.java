@@ -12,12 +12,8 @@ public class GroupQuestionSetInfo implements Serializable {
     String QuestionSetUID;
     String QuestonSetID;
 
-    public GroupQuestionSetInfo(DocumentSnapshot documentSnapshot){
-        this.CreatedAt = documentSnapshot.getLong("createdAt");
-        this.QuestionSetTitle = documentSnapshot.getString("questionSetTitle");
-        this.QuestionSetDescription = documentSnapshot.getString("questionSetDescription");
-        this.QuestionSetUID = documentSnapshot.getString("userUID");
-        this.QuestonSetID = documentSnapshot.getId();
+    public GroupQuestionSetInfo(){
+
     }
 
     public long getCreatedAt() {

@@ -80,7 +80,12 @@ public class GroupCollection extends AppCompatActivity {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 if (!queryDocumentSnapshots.isEmpty()){
                     for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots){
-                        GroupQuestionSetInfo groupQuestionSetInfo = new GroupQuestionSetInfo(documentSnapshot);
+                        GroupQuestionSetInfo groupQuestionSetInfo = new GroupQuestionSetInfo();
+
+                        groupQuestionSetInfo.setCreatedAt(documentSnapshot.getLong("createdAt"));
+                        groupQuestionSetInfo.setQuestionSetTitle(documentSnapshot.getString("questionSetTitle"));
+                        groupQuestionSetInfo.setQuestionSetDescription(documentSnapshot.getString("questionSetDescription"));
+                        groupQuestionSetInfo.setQuestionSetUID(documentSnapshot.getString("userUID"));
                         groupQuestionSetInfo.setQuestonSetID(documentSnapshot.getId());
                         groupQuestionSetInfos.add(groupQuestionSetInfo);
                     }
