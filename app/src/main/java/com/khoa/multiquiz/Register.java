@@ -57,7 +57,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email,username,  password;
+                String email,  password;
                 email = String.valueOf(emailTextView.getText());
                 password = String.valueOf(passwordTextView.getText());
 

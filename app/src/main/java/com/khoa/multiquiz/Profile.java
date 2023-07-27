@@ -16,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,9 +25,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Filter;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.khoa.multiquiz.adapter.HistoryAdapter;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -33,6 +39,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class Profile extends AppCompatActivity {
     Button EditProfileButton, LogoutButton;
@@ -44,6 +51,10 @@ public class Profile extends AppCompatActivity {
     StorageReference storageReferenceAvatar;
     CollectionReference collectionReferenceUserData;
     SharedPreferences sharedPreferences;
+    RecyclerView HistoryRecyclerView;
+    ArrayList<DuelMatchHistoryLog> duelMatchHistoryLogs;
+    HistoryAdapter historyAdapter;
+    CollectionReference collectionReferenceMatchData;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +64,7 @@ public class Profile extends AppCompatActivity {
         LogoutButton = findViewById(R.id.LogoutButon);
         AvatarImage = findViewById(R.id.AvatarImage);
         UserDisplayName = findViewById(R.id.UserDisplayName);
+        HistoryRecyclerView = findViewById(R.id.HistoryRecyclerView);
         sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
 
         firestore = FirebaseFirestore.getInstance();
@@ -60,9 +72,23 @@ public class Profile extends AppCompatActivity {
         FirebaseAuth MAuth = FirebaseAuth.getInstance();
         currentUser = MAuth.getCurrentUser();
 
+        HistoryRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        duelMatchHistoryLogs = new ArrayList<>();
+        historyAdapter = new HistoryAdapter(Profile.this, duelMatchHistoryLogs, firestore, storage);
+        HistoryRecyclerView.setAdapter(historyAdapter);
+
         getUserAvatarImage();
         getUserData();
+        getUserMatchHistory();
 
+        historyAdapter.setOnClickListener(new HistoryAdapter.OnClickListener() {
+            @Override
+            public void onClick(int position, DuelMatchHistoryLog duelMatchHistoryLog) {
+                Intent intent = new Intent(Profile.this, DuelResult.class);
+                intent.putExtra("SessionID", duelMatchHistoryLog.getSessionID());
+                startActivity(intent);
+            }
+        });
         EditProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +103,7 @@ public class Profile extends AppCompatActivity {
                 logoutUser();
             }
         });
+
     }
 
     private void getUserData(){
@@ -145,8 +172,23 @@ public class Profile extends AppCompatActivity {
 
 
 
-    private void getUserDashboardInfo(){
+    private void getUserMatchHistory(){
+        collectionReferenceMatchData = firestore.collection("DuelMatchHistoryLog");
+        Query matchQuery = collectionReferenceMatchData.where(Filter.or(
+                Filter.equalTo("ownerUID", currentUser.getUid()),
+                Filter.equalTo("opponentUID", currentUser.getUid())
+        ));
+        matchQuery.get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            @Override
+            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                for (DocumentSnapshot document : queryDocumentSnapshots){
+                    DuelMatchHistoryLog duelMatchHistoryLog = document.toObject(DuelMatchHistoryLog.class);
 
+                    duelMatchHistoryLogs.add(duelMatchHistoryLog);
+                }
+                historyAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     private void logoutUser(){
@@ -155,9 +197,9 @@ public class Profile extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-        Intent intent = new Intent(Profile.this, Login.class);
-        startActivity(intent);
-        finish();
+        Intent i = new Intent(Profile.this, Login.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
     }
 
 }

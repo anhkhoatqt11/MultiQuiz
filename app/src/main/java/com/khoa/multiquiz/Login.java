@@ -22,8 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class Login extends AppCompatActivity {
 
     EditText emailTextView, passwordTextView;
-    TextView registerSwitchTextView;
-    Button loginButton;
+    TextView registerSwitchTextView, forgotPasswordSwitch;
+    Button loginButton, registerButton;
     private FirebaseAuth mAuth;
     ProgressBar progressBar;
 
@@ -50,12 +50,22 @@ public class Login extends AppCompatActivity {
         passwordTextView = findViewById(R.id.passwordTextViewLogin);
         loginButton = findViewById(R.id.loginButton);
         progressBar = findViewById(R.id.progressBarLogin);
-        registerSwitchTextView = findViewById(R.id.registerSwitchTextView);
-
-        registerSwitchTextView.setOnClickListener(new View.OnClickListener() {
+//        registerSwitchTextView = findViewById(R.id.registerSwitchTextView);
+        registerButton = findViewById(R.id.registerSwitchButton);
+        forgotPasswordSwitch = findViewById(R.id.forgotPasswordSwitch);
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Register.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        forgotPasswordSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ForgetPassword.class);
                 startActivity(intent);
                 finish();
             }

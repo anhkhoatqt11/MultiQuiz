@@ -153,6 +153,7 @@ public class GroupControlIngame extends AppCompatActivity {
                             getQuestionNumberFromDatabase();
                         }
                         if (QuestionNumber == queryDocumentSnapshots.size()){
+                            AnswerTimer.cancel();
                             finish();
                         }
                     }

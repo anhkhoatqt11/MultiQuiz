@@ -148,9 +148,17 @@ public class ThemeLobby extends AppCompatActivity {
                     Intent intent = new Intent(ThemeLobby.this, DuelWaitingIngame.class);
                     intent.putExtra("Room", room);
                     startActivity(intent);
-                } else {
+                } else if (currentUser.getUid().equals(room.getUserUID())){
+                    Intent intent = new Intent(ThemeLobby.this, DuelWaitingIngame.class);
+                    intent.putExtra("Room", room);
+                    startActivity(intent);
+                } else if (currentUser.getUid().equals(room.getOpponentUID())){
+                    Intent intent = new Intent(ThemeLobby.this, DuelWaitingIngame.class);
+                    intent.putExtra("Room", room);
+                    startActivity(intent);
+                }
+                else {
                     Toast.makeText(ThemeLobby.this, "Phòng đã có người tham gia", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

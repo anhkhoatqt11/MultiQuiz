@@ -128,7 +128,7 @@ public class GroupLobbyWaiting extends AppCompatActivity {
         databaseReferenceParticipantInfo = database.getReference().child("GroupLobby").child(JoinCode).child("participant");
         Map<String, Object> participantInfo = new HashMap<>();
         participantInfo.put(currentUser.getUid(), true);
-        databaseReferenceParticipantInfo.setValue(participantInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
+        databaseReferenceParticipantInfo.updateChildren(participantInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
 
@@ -137,7 +137,7 @@ public class GroupLobbyWaiting extends AppCompatActivity {
         databaseReferenceParticipantInfo = database.getReference().child("GroupLobby").child(JoinCode).child("point");
         Map<String, Object> participantPoint = new HashMap<>();
         participantPoint.put(currentUser.getUid(), 0);
-        databaseReferenceParticipantInfo.setValue(participantPoint).addOnSuccessListener(new OnSuccessListener<Void>() {
+        databaseReferenceParticipantInfo.updateChildren(participantPoint).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
 
@@ -147,7 +147,7 @@ public class GroupLobbyWaiting extends AppCompatActivity {
         databaseReferenceParticipantInfo = database.getReference().child("GroupLobby").child(JoinCode).child("status");
         Map<String, Object> participantStatus = new HashMap<>();
         participantStatus.put(currentUser.getUid(), 0);
-        databaseReferenceParticipantInfo.setValue(participantStatus).addOnSuccessListener(new OnSuccessListener<Void>() {
+        databaseReferenceParticipantInfo.updateChildren(participantStatus).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
 

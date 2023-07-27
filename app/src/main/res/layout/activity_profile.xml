@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile">
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,10 +48,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_marginEnd="16dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/edit_label"
                         app:icon="@drawable/ic_edit"
-                        android:text="@string/edit_label"/>
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -61,33 +60,52 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/UserDisplayName"
+                    style="@style/NameTextProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    style="@style/NameTextProfile">
-                </TextView>
+                    android:gravity="center"></TextView>
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp">
-                <Button
-                    android:id="@+id/LogoutButon"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Đăng xuất">
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical">
 
-                </Button>
+                <TextView
+                    style="@style/PartText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lịch sử tham gia" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/HistoryRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/QuestionPartText"
+                    android:layout_marginTop="10dp"></androidx.recyclerview.widget.RecyclerView>
+
             </LinearLayout>
 
+
         </LinearLayout>
+    </LinearLayout>
 
-    </ScrollView>
-
+    <Button
+        android:id="@+id/LogoutButon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đăng xuất"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

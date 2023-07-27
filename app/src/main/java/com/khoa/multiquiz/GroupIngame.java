@@ -256,8 +256,13 @@ public class GroupIngame extends AppCompatActivity {
 
                             // Step 4: Once the array is reordered, get the question number from the Realtime Database
                             getQuestionNumberFromDatabase();
+
                         } else {
                             Log.e("GeneralStatus", "Empty");
+                        }
+                        if (QuestionNumber == queryDocumentSnapshots.size()){
+                            AnswerTimer.cancel();
+                            finish();
                         }
                     }
                 });

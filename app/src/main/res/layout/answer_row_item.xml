@@ -29,7 +29,6 @@
                     android:id="@+id/QuestionNumberOfAnswer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"
                     style="@style/PartText">
                 </TextView>
             </LinearLayout>
@@ -42,7 +41,6 @@
                     android:id="@+id/QuestionTextOfAnswer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/example_question"
                     style="@style/QuestionText"
                     android:layout_marginStart="15dp"/>
             </LinearLayout>
@@ -66,8 +64,7 @@
                 <TextView
                     android:id="@+id/UserAnswer"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Đáp án 1">
+                    android:layout_height="wrap_content">
                 </TextView>
             </LinearLayout>
 
@@ -84,8 +81,7 @@
                 <TextView
                     android:id="@+id/CorrectAnswer"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Đáp án 1">
+                    android:layout_height="wrap_content">
                 </TextView>
             </LinearLayout>
 

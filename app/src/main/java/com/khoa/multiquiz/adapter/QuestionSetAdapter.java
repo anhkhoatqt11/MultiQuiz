@@ -82,14 +82,14 @@ public class QuestionSetAdapter extends RecyclerView.Adapter<QuestionSetAdapter.
             }
         });
 
-        holder.EditButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (onPlayButtonClickListener != null) {
-                    onPlayButtonClickListener.onPlayButtonClick(position, groupQuestionSetInfo);
-                }
-            }
-        });
+//        holder.EditButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (onPlayButtonClickListener != null) {
+//                    onPlayButtonClickListener.onPlayButtonClick(position, groupQuestionSetInfo);
+//                }
+//            }
+//        });
 
 
     }
@@ -123,9 +123,6 @@ public class QuestionSetAdapter extends RecyclerView.Adapter<QuestionSetAdapter.
             QuestionSetDescriptionTextView = itemView.findViewById(R.id.QuestionSetDescription);
             PlayButton = itemView.findViewById(R.id.QuestionSetPlayButton);
             EditButton = itemView.findViewById(R.id.QuestionSetEditButton);
-
-
-
 
         }
     }
