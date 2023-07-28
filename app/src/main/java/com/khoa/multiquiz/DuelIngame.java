@@ -116,6 +116,7 @@ public class DuelIngame extends AppCompatActivity {
         generateSessionID();
         buttonFunctionInitialize();
         gameStartCountDown();
+        setButtonState(false);
     }
 
     private void clearOldData(){
@@ -228,6 +229,7 @@ public class DuelIngame extends AppCompatActivity {
             public void onFinish() {
                 fetchingQuestionAndAnswer();
                 DuelBackgroundMusic.start();
+                setButtonState(true);
             }
         }.start();
     }

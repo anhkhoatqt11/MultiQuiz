@@ -53,11 +53,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Đối đầu (1vs1)" />
-
+s
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tham gia trả lời câu hỏi giữa với một đối thủ với số lượng câu hỏi được định sẵn" />
+            android:text="Tham gia trả lời câu hỏi với một đối thủ với số lượng câu hỏi được cài đặt bởi chủ phòng" />
     </LinearLayout>
 
 
